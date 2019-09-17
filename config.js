@@ -49,7 +49,7 @@ export const createAccount = async user => {
         userf.updateProfile({displayName: user.name}).then(
           function() {
             console.log('Updated displayName successfully. name:' + user.name);
-            alert(
+            console.log(
               'User ' + user.name + ' was created successfully. Please login.',
             );
           },
@@ -60,7 +60,7 @@ export const createAccount = async user => {
       },
       function(error) {
         console.error('got error:' + typeof error + ' string:' + error.message);
-        alert('Create account failed. Error: ' + error.message);
+        console.log('Create account failed. Error: ' + error.message);
       },
     );
 };

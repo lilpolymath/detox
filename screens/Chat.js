@@ -48,9 +48,14 @@ export class Chat extends Component {
       .on('child_added', snapshot => {
         const {from, message, time} = snapshot.val();
         const {key: _id} = snapshot;
-        const {newTime} = new Date(time);
         const user = {_id: from, avatar: 'https://placeimg.com/140/140/any'};
-        const parsed = {_id, newTime, text: message, user};
+        const parsed = {
+          _id,
+
+          text: message,
+          createdAt: new Date(time),
+          user,
+        };
         this.setState(prevState => ({
           messageList: GiftedChat.append(prevState.messageList, parsed),
         }));

@@ -12,8 +12,6 @@ import {
 } from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
 import firebase from 'firebase';
-import User from '../constants';
-import firebaseConfig from '../config';
 import heavy from '../assets/snow.png';
 import logo from '../assets/customer.png';
 import Icon from 'react-native-vector-icons/Ionicons';
