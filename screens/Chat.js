@@ -1,4 +1,3 @@
-/* eslint-disable react-native/no-inline-styles */
 import React, {Component} from 'react';
 import firebase from 'firebase';
 import snow from '../assets/snow.png';
@@ -27,11 +26,7 @@ export class Chat extends Component {
   UNSAFE_componentWillMount() {
     var userId = firebase.auth().currentUser;
     this.setState({name: userId.uid});
-    this.loadMessages(message =>
-      this.setState(prevState => ({
-        messageList: GiftedChat.append(prevState.messageList, message),
-      })),
-    );
+    this.loadMessages();
   }
 
   componentWillUnmount() {
@@ -41,7 +36,7 @@ export class Chat extends Component {
       .off();
   }
 
-  loadMessages = callback => {
+  loadMessages = () => {
     var userId = firebase.auth().currentUser;
     this.setState({name: userId.uid});
     firebase
@@ -50,29 +45,16 @@ export class Chat extends Component {
       .child(userId.uid)
       .child(this.state.person.userId)
       .limitToLast(20)
-      .on(
-        'child_added',
-        snapshot => {
-          return this.parseMessage(snapshot);
-        },
-        function(error) {
-          console.log(error);
-        },
-      );
-    // .on('child_added', value => {
-    //   return {
-    //     message: {
-    //       _id: value.key,
-    //       text: value.val().message,
-    //       createdAt: new Date(value.val().time),
-    //       user: {
-    //         _id: value.val().from,
-    //         name: userId.username,
-    //         avatar: 'https://placeimg.com/140/140/any',
-    //       },
-    //     },
-    //   };
-    // });
+      .on('child_added', snapshot => {
+        const {from, message, time} = snapshot.val();
+        const {key: _id} = snapshot;
+        const {newTime} = new Date(time);
+        const user = {_id: from, avatar: 'https://placeimg.com/140/140/any'};
+        const parsed = {_id, newTime, text: message, user};
+        this.setState(prevState => ({
+          messageList: GiftedChat.append(prevState.messageList, parsed),
+        }));
+      });
   };
 
   parseMessage = snapshot => {
