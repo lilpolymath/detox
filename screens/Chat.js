@@ -46,12 +46,16 @@ export class Chat extends Component {
       .child(this.state.person.userId)
       .limitToLast(20)
       .on('child_added', snapshot => {
-        const {from, message, time} = snapshot.val();
+        const {from, message, time, username} = snapshot.val();
         const {key: _id} = snapshot;
-        const user = {_id: from, avatar: 'https://placeimg.com/140/140/any'};
+        const user = {
+          _id: from,
+          avatar:
+            'https://ui-avatars.com/api/?background=d88413&color=FFF&name=' +
+            {username},
+        };
         const parsed = {
           _id,
-
           text: message,
           createdAt: new Date(time),
           user,
@@ -60,15 +64,6 @@ export class Chat extends Component {
           messageList: GiftedChat.append(prevState.messageList, parsed),
         }));
       });
-  };
-
-  parseMessage = snapshot => {
-    const {from, message, time} = snapshot.val();
-    const {key: _id} = snapshot;
-    const {newTime} = new Date(time);
-    const user = {_id: from, avatar: 'https://placeimg.com/140/140/any'};
-    const messages = {_id, newTime, text: message, user};
-    return messages;
   };
 
   handleChange = key => val => {
@@ -90,11 +85,6 @@ export class Chat extends Component {
         .child(this.state.person.userId)
         .push().key;
       let updates = {};
-      // let messasge = {
-      //   message: this.state.messages,
-      //   time: firebase.database.ServerValue.TIMESTAMP,
-      //   ,
-      // };
       updates[
         'messages/' +
           this.state.name +
@@ -115,8 +105,6 @@ export class Chat extends Component {
         .database()
         .ref()
         .update(updates);
-
-      this.loadMessages();
     }
   };
 

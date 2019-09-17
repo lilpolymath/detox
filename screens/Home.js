@@ -71,7 +71,6 @@ export class Home extends Component {
   render() {
     return (
       <SafeAreaView>
-        {/* {this.saySomething} */}
         <FlatList
           data={this.state.users}
           renderItem={this.renderRow}

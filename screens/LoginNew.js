@@ -99,7 +99,6 @@ export class LoginNew extends Component {
             placeholderTextColor="white"
             style={styles.input}
             underlineColorAndroid="transparent"
-            keyboardType="numeric"
             value={this.state.password}
             secureTextEntry={this.state.truthy}
             onChangeText={this.handleChange('password')}
@@ -145,7 +144,7 @@ const styles = StyleSheet.create({
   logoText: {
     fontSize: 20,
     fontWeight: '500',
-    color: 'beige',
+    color: 'white',
     marginTop: 10,
   },
   inputContainer: {

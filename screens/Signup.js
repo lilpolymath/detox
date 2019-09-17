@@ -36,7 +36,8 @@ export class Signup extends Component {
   writeUserData = (userId, name, email) => {
     firebase
       .database()
-      .ref('users/' + userId)
+      .ref('users')
+      .child(userId)
       .set({
         username: name,
         email: email,
@@ -59,13 +60,9 @@ export class Signup extends Component {
         .auth()
         .createUserWithEmailAndPassword(this.state.email, this.state.cPass)
         .catch(error => this.setState({errorMessage: error.message}));
-      // .database()
-      // .ref('users/' + this.state.email)
-      // .set({name: this.state.username})
-      var userId = firebase.auth().currentUser;
-      // userId.updateProfile({displayName: this.state.username});
-      this.writeUserData(userId.uid, this.state.username, this.state.email);
     }
+    var userId = firebase.auth().currentUser;
+    this.writeUserData(userId.uid, this.state.username, this.state.email);
   };
 
   showPassword = () => {
@@ -178,7 +175,7 @@ const styles = StyleSheet.create({
   logoText: {
     fontSize: 20,
     fontWeight: '500',
-    color: 'beige',
+    color: 'white',
     marginTop: 10,
   },
   inputContainer: {
