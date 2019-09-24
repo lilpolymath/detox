@@ -36,7 +36,8 @@ export class Signup extends Component {
   writeUserData = (userId, name, email) => {
     firebase
       .database()
-      .ref('users')
+      .ref()
+      .child('users')
       .child(userId)
       .set({
         username: name,
@@ -61,8 +62,11 @@ export class Signup extends Component {
         .createUserWithEmailAndPassword(this.state.email, this.state.cPass)
         .catch(error => this.setState({errorMessage: error.message}));
     }
-    var userId = firebase.auth().currentUser;
-    this.writeUserData(userId.uid, this.state.username, this.state.email);
+    firebase
+      .auth()
+      .onAuthStateChanged(user =>
+        this.writeUserData(user.uid, this.state.username, user.email),
+      );
   };
 
   showPassword = () => {
@@ -129,7 +133,6 @@ export class Signup extends Component {
             placeholderTextColor="white"
             style={styles.input}
             underlineColorAndroid="transparent"
-            keyboardType="number-pad"
             value={this.state.cPass}
             secureTextEntry={this.state.truthy}
             onChangeText={this.handleChange('cPass')}
