@@ -32,14 +32,6 @@ export class LoginNew extends Component {
     truthy: true,
   };
 
-  UNSAFE_componentWillMount() {
-    AsyncStorage.getItem('email').then(val => {
-      if (val) {
-        this.setState({email: val});
-      }
-    });
-  }
-
   handleChange = key => val => {
     this.setState({[key]: val});
   };
@@ -48,8 +40,15 @@ export class LoginNew extends Component {
     firebase
       .auth()
       .signInWithEmailAndPassword(this.state.email, this.state.password)
-      .catch(error => this.setState({errorMessage: error.message}))
-      .then(() => this.props.navigation.navigate('Main'));
+      .catch(error => this.setState({errorMessage: error.message}));
+
+    firebase.auth().onAuthStateChanged(function(user) {
+      if (user) {
+        this.props.navigation.navigate('Main');
+      } else {
+        return;
+      }
+    });
   };
 
   showPassword = () => {

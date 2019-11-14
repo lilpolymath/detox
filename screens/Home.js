@@ -10,17 +10,11 @@ export class Home extends Component {
   };
 
   state = {
-    name: '',
     email: '',
     users: [],
   };
 
   componentDidMount() {
-    AsyncStorage.getItem('username').then(val => {
-      if (val) {
-        this.setState({name: val});
-      }
-    });
     let dbRef = firebase.database().ref('users');
     var userId = firebase.auth().currentUser;
     dbRef.on('child_added', val => {
@@ -35,10 +29,6 @@ export class Home extends Component {
       }
     });
   }
-
-  // saySomething = () => {
-  //   return Alert.alert('Users', this.state.users);
-  // };
 
   keyExtractor = (item, index) => index.toString();
 

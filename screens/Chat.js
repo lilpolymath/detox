@@ -50,9 +50,7 @@ export class Chat extends Component {
         const {key: _id} = snapshot;
         const user = {
           _id: from,
-          avatar:
-            'https://ui-avatars.com/api/?background=d88413&color=FFF&name=' +
-            {username},
+          avatar: `https://ui-avatars.com/api/?background=d88413&color=FFF&name=${username}`,
         };
         const parsed = {
           _id,
