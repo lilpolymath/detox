@@ -65,7 +65,7 @@ export class LoginNew extends Component {
       <ImageBackground style={styles.container} source={heavy}>
         <View style={styles.logoContainer}>
           <Image source={logo} style={styles.logo} />
-          <Text style={styles.logoText}>DETOX</Text>
+          {/* <Text style={styles.logoText}>DETOX</Text> */}
         </View>
         {this.state.errorMessage
           ? Alert.alert('Error', this.state.errorMessage)
@@ -116,6 +116,10 @@ export class LoginNew extends Component {
 
         <TouchableOpacity onPress={this.submitForm} style={styles.loginBtn}>
           <Text style={styles.loginText}>LOGIN</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => this.props.navigation.navigate('Signup')}>
+          <Text style={styles.loginText}>New User? SignUp</Text>
         </TouchableOpacity>
       </ImageBackground>
     );

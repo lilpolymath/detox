@@ -2,7 +2,13 @@ import firebase from 'firebase';
 // import uuid from 'uuid';
 
 const firebaseConfig = {
- // Message to get keys
+  apiKey: 'AIzaSyDL43OTDUou2VHOn-MGxZV-8d-s0hrP9KM',
+  authDomain: 'detox-80139.firebaseapp.com',
+  databaseURL: 'https://detox-80139.firebaseio.com',
+  projectId: 'detox-80139',
+  storageBucket: 'detox-80139.appspot.com',
+  messagingSenderId: '455570666136',
+  appId: '1:455570666136:web:1efce2c5a7273ded',
 };
 
 export default firebaseConfig;

@@ -1,0 +1,195 @@
+
+09/26 14:58:26: Launching app-x86-release
+No apk changes detected since last installation, skipping installation of /home/polymath/ApkProjects/app-x86-release/app-x86-release.apk
+$ adb shell am force-stop com.detox
+$ adb shell am start -n "com.detox/com.detox.MainActivity" -a android.intent.action.MAIN -c android.intent.category.LAUNCHER
+Client not ready yet..Waiting for process to come online
+Connected to process 2387 on device -192.168.56.101:5555
+Capturing and displaying logcat messages from application. This behavior can be disabled in the "Logcat output" section of the "Debugger" settings page.
+I/com.detox: The ClassLoaderContext is a special shared library.
+D/SoLoader: init start
+    adding system library source: /vendor/lib
+D/SoLoader: adding system library source: /system/lib
+D/SoLoader: adding application source: com.facebook.soloader.c[root = /data/app/com.detox-LY2fy-ankyYxdRLfu_ZZ0g==/lib/x86 flags = 0]
+D/SoLoader: adding backup source from : com.facebook.soloader.a[root = /data/data/com.detox/lib-main flags = 1]
+D/SoLoader: Preparing SO source: com.facebook.soloader.c[root = /system/lib flags = 2]
+    Preparing SO source: com.facebook.soloader.c[root = /system/vendor/lib flags = 2]
+    Preparing SO source: com.facebook.soloader.c[root = /data/app/com.detox-LY2fy-ankyYxdRLfu_ZZ0g==/lib/x86 flags = 0]
+    Preparing SO source: com.facebook.soloader.a[root = /data/data/com.detox/lib-main flags = 1]
+V/fb-UnpackingSoSource: locked dso store /data/user/0/com.detox/lib-main
+I/fb-UnpackingSoSource: dso store is up-to-date: /data/user/0/com.detox/lib-main
+V/fb-UnpackingSoSource: releasing dso store lock for /data/user/0/com.detox/lib-main
+D/SoLoader: init finish: 4 SO sources prepared
+    init exiting
+D/libEGL: Emulator has host GPU support, qemu.gles is set to 1.
+D/vndksupport: Loading /vendor/lib/egl/libGLES_emulation.so from current namespace instead of sphal namespace.
+E/libEGL: load_driver(/vendor/lib/egl/libGLES_emulation.so): dlopen failed: library "/vendor/lib/egl/libGLES_emulation.so" not found
+D/vndksupport: Loading /vendor/lib/egl/libEGL_emulation.so from current namespace instead of sphal namespace.
+D/libEGL: loaded /vendor/lib/egl/libEGL_emulation.so
+D/vndksupport: Loading /vendor/lib/egl/libGLESv1_CM_emulation.so from current namespace instead of sphal namespace.
+D/libEGL: loaded /vendor/lib/egl/libGLESv1_CM_emulation.so
+D/vndksupport: Loading /vendor/lib/egl/libGLESv2_emulation.so from current namespace instead of sphal namespace.
+D/libEGL: loaded /vendor/lib/egl/libGLESv2_emulation.so
+D/SoLoader: About to load: libjscexecutor.so
+D/SoLoader: libjscexecutor.so not found on /data/data/com.detox/lib-main
+    libjscexecutor.so found on /data/app/com.detox-LY2fy-ankyYxdRLfu_ZZ0g==/lib/x86
+    Not resolving dependencies for libjscexecutor.so
+D/JavaScriptCore.Version: 245459.0.0
+D/SoLoader: Loaded: libjscexecutor.so
+D/ReactNative: ReactInstanceManager.ctor()
+D/SoLoader: init exiting
+D/ReactNative: ReactInstanceManager.createReactContextInBackground()
+    ReactInstanceManager.recreateReactContextInBackgroundInner()
+    ReactInstanceManager.recreateReactContextInBackgroundFromBundleLoader()
+    ReactInstanceManager.recreateReactContextInBackground()
+    ReactInstanceManager.runCreateReactContextOnNewThread()
+D/SoLoader: About to load: libreactnativejni.so
+    libreactnativejni.so not found on /data/data/com.detox/lib-main
+D/SoLoader: libreactnativejni.so found on /data/app/com.detox-LY2fy-ankyYxdRLfu_ZZ0g==/lib/x86
+    Not resolving dependencies for libreactnativejni.so
+D/SoLoader: Loaded: libreactnativejni.so
+    About to load: libfb.so
+    libfb.so not found on /data/data/com.detox/lib-main
+D/SoLoader: libfb.so found on /data/app/com.detox-LY2fy-ankyYxdRLfu_ZZ0g==/lib/x86
+    Not resolving dependencies for libfb.so
+D/SoLoader: About to load: libfb.so
+    libfb.so not found on /data/data/com.detox/lib-main
+    libfb.so found on /data/app/com.detox-LY2fy-ankyYxdRLfu_ZZ0g==/lib/x86
+    Not resolving dependencies for libfb.so
+I/com.detox: Thread[13,tid=2404,Native,Thread*=0xe7615600,peer=0x14ddb328,"create_react_context"] recursive attempt to load library "/data/app/com.detox-LY2fy-ankyYxdRLfu_ZZ0g==/lib/x86/libfb.so"
+D/SoLoader: Loaded: libfb.so
+    Loaded: libfb.so
+D/ReactNative: ReactInstanceManager.createReactContext()
+D/OpenGLRenderer: Skia GL Pipeline
+D/NetworkSecurityConfig: No Network Security Config specified, using platform default
+D/ReactNative: Initializing React Xplat Bridge.
+D/ReactNative: Initializing React Xplat Bridge before initializeBridge
+D/ReactNative: Initializing React Xplat Bridge after initializeBridge
+    CatalystInstanceImpl.runJSBundle()
+D/ReactNative: ReactInstanceManager.setupReactContext()
+D/ReactNative: CatalystInstanceImpl.initialize()
+D/ReactNative: ReactInstanceManager.attachRootViewToInstance()
+D/: HostConnection::get() New Host Connection established 0xe8d92c80, tid 2407
+W/: Unrecognized GLES max version string in extensions: 
+W/: Process pipe failed
+I/ConfigStore: android::hardware::configstore::V1_0::ISurfaceFlingerConfigs::hasWideColorDisplay retrieved: 0
+I/ConfigStore: android::hardware::configstore::V1_0::ISurfaceFlingerConfigs::hasHDRDisplay retrieved: 0
+I/OpenGLRenderer: Initialized EGL, version 1.4
+D/OpenGLRenderer: Swap behavior 1
+W/unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.facebook.react.views.art.ARTGroupViewManager
+W/unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.facebook.react.views.art.a
+W/unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.facebook.react.views.art.ARTShapeViewManager
+    Could not find generated setter for class com.facebook.react.views.art.b
+W/unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.facebook.react.views.art.ARTTextViewManager
+    Could not find generated setter for class com.facebook.react.views.art.f
+D/EGL_emulation: eglCreateContext: 0xe9085360: maj 2 min 0 rcv 2
+W/unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.facebook.react.views.checkbox.ReactCheckBoxManager
+W/unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.facebook.react.uimanager.h
+W/unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.facebook.react.views.picker.ReactDialogPickerManager
+W/unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.facebook.react.views.drawer.ReactDrawerLayoutManager
+W/unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.facebook.react.views.picker.ReactDropdownPickerManager
+W/unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.facebook.react.views.scroll.ReactHorizontalScrollViewManager
+W/unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.facebook.react.views.scroll.ReactHorizontalScrollContainerViewManager
+W/unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.facebook.react.views.progressbar.ReactProgressBarViewManager
+W/unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.facebook.react.views.progressbar.b
+W/unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.facebook.react.views.scroll.ReactScrollViewManager
+W/unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.facebook.react.views.slider.ReactSliderManager
+W/unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.facebook.react.views.slider.ReactSliderManager$a
+W/unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.facebook.react.views.switchview.ReactSwitchManager
+I/com.detox: Background concurrent copying GC freed 11563(2MB) AllocSpace objects, 0(0B) LOS objects, 49% free, 1635KB/3MB, paused 424us total 257.308ms
+W/unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.facebook.react.views.switchview.ReactSwitchManager$a
+W/unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.facebook.react.views.toolbar.ReactToolbarManager
+W/unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.facebook.react.views.swiperefresh.SwipeRefreshLayoutManager
+W/unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.facebook.react.views.art.ARTSurfaceViewManager
+    Could not find generated setter for class com.facebook.react.views.art.e
+W/unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.facebook.react.views.text.frescosupport.FrescoBasedReactTextInlineImageViewManager
+W/unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.facebook.react.views.text.frescosupport.a
+W/unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.facebook.react.views.image.ReactImageManager
+D/vndksupport: Loading /vendor/lib/hw/android.hardware.graphics.mapper@2.0-impl.so from current namespace instead of sphal namespace.
+D/vndksupport: Loading /vendor/lib/hw/gralloc.vbox86.so from current namespace instead of sphal namespace.
+W/unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.facebook.react.views.modal.ReactModalHostManager
+W/unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.facebook.react.views.modal.b
+W/unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.facebook.react.views.text.ReactRawTextManager
+W/unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.facebook.react.views.text.l
+W/unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.facebook.react.views.textinput.ReactTextInputManager
+W/unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.facebook.react.views.textinput.q
+W/unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.facebook.react.views.text.ReactTextViewManager
+W/unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.facebook.react.views.text.r
+W/unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.facebook.react.views.view.ReactViewManager
+W/unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.facebook.react.views.viewpager.ReactViewPagerManager
+E/EGL_emulation: tid 2407: eglSurfaceAttrib(1354): error 0x3009 (EGL_BAD_MATCH)
+W/OpenGLRenderer: Failed to set EGL_SWAP_BEHAVIOR on surface 0xe90852a0, error=EGL_BAD_MATCH
+W/unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.facebook.react.views.text.ReactVirtualTextViewManager
+    Could not find generated setter for class com.facebook.react.views.text.w
+W/unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.swmansion.gesturehandler.react.RNGestureHandlerRootViewManager
+W/unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.swmansion.gesturehandler.react.RNGestureHandlerButtonViewManager
+W/unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.airbnb.android.react.maps.AirMapCalloutManager
+W/unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.airbnb.android.react.maps.AirMapMarkerManager
+W/unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.airbnb.android.react.maps.AirMapPolylineManager
+W/unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.airbnb.android.react.maps.AirMapPolygonManager
+W/unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.airbnb.android.react.maps.AirMapCircleManager
+W/unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.airbnb.android.react.maps.AirMapManager
+W/unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.airbnb.android.react.maps.AirMapLiteManager
+    Could not find generated setter for class com.airbnb.android.react.maps.AirMapUrlTileManager
+W/unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.airbnb.android.react.maps.AirMapWMSTileManager
+W/unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.airbnb.android.react.maps.AirMapLocalTileManager
+W/unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.airbnb.android.react.maps.AirMapOverlayManager
+D/SoLoader: About to load: libyoga.so
+D/SoLoader: libyoga.so not found on /data/data/com.detox/lib-main
+D/SoLoader: libyoga.so found on /data/app/com.detox-LY2fy-ankyYxdRLfu_ZZ0g==/lib/x86
+    Not resolving dependencies for libyoga.so
+D/SoLoader: Loaded: libyoga.so
+I/OpenGLRenderer: Davey! duration=1164ms; Flags=0, IntendedVsync=1010919267619, Vsync=1010935934285, OldestInputEvent=9223372036854775807, NewestInputEvent=0, HandleInputStart=1010940380416, AnimationStart=1010940409137, PerformTraversalsStart=1010940417403, DrawStart=1011917157550, SyncQueued=1011917703348, SyncStart=1011953626585, IssueDrawCommandsStart=1011953712419, SwapBuffers=1012080684518, FrameCompleted=1012119374310, DequeueBufferDuration=289000, QueueBufferDuration=947000, 
+D/SoLoader: init exiting
+I/ReactNativeJS: Running application "Detox" with appParams: {"rootTag":1}. __DEV__ === false, development-level warning are OFF, performance optimizations are ON
+D/SoLoader: About to load: libimagepipeline.so
+D/SoLoader: libimagepipeline.so not found on /data/data/com.detox/lib-main
+D/SoLoader: libimagepipeline.so found on /data/app/com.detox-LY2fy-ankyYxdRLfu_ZZ0g==/lib/x86
+    Not resolving dependencies for libimagepipeline.so
+D/SoLoader: Loaded: libimagepipeline.so
+D/SoLoader: About to load: libnative-imagetranscoder.so
+    libnative-imagetranscoder.so not found on /data/data/com.detox/lib-main
+    libnative-imagetranscoder.so found on /data/app/com.detox-LY2fy-ankyYxdRLfu_ZZ0g==/lib/x86
+    Not resolving dependencies for libnative-imagetranscoder.so
+D/SoLoader: Loaded: libnative-imagetranscoder.so
+I/com.detox: Background concurrent copying GC freed 28937(1262KB) AllocSpace objects, 6(116KB) LOS objects, 50% free, 2MB/4MB, paused 4.447ms total 122.616ms
+W/IInputConnectionWrapper: getSelectedText on inactive InputConnection
+W/IInputConnectionWrapper: requestCursorAnchorInfo on inactive InputConnection
+W/IInputConnectionWrapper: getTextBeforeCursor on inactive InputConnection
+W/IInputConnectionWrapper: getTextBeforeCursor on inactive InputConnection
+W/IInputConnectionWrapper: getTextBeforeCursor on inactive InputConnection
+W/IInputConnectionWrapper: getSelectedText on inactive InputConnection
+W/IInputConnectionWrapper: requestCursorAnchorInfo on inactive InputConnection
+W/IInputConnectionWrapper: getTextBeforeCursor on inactive InputConnection
+W/IInputConnectionWrapper: getTextBeforeCursor on inactive InputConnection
+W/IInputConnectionWrapper: getTextBeforeCursor on inactive InputConnection
+W/IInputConnectionWrapper: getSelectedText on inactive InputConnection
+W/IInputConnectionWrapper: requestCursorAnchorInfo on inactive InputConnection
+W/IInputConnectionWrapper: getTextBeforeCursor on inactive InputConnection
+W/IInputConnectionWrapper: getTextBeforeCursor on inactive InputConnection
+W/IInputConnectionWrapper: getTextBeforeCursor on inactive InputConnection
+W/IInputConnectionWrapper: getSelectedText on inactive InputConnection
+W/IInputConnectionWrapper: requestCursorAnchorInfo on inactive InputConnection
+W/IInputConnectionWrapper: getTextBeforeCursor on inactive InputConnection
+W/IInputConnectionWrapper: getTextBeforeCursor on inactive InputConnection
+W/IInputConnectionWrapper: getTextBeforeCursor on inactive InputConnection
+E/AndroidRuntime: FATAL EXCEPTION: mqt_native_modules
+    Process: com.detox, PID: 2387
+    com.facebook.react.bridge.UnexpectedNativeTypeException: Value for message cannot be cast from ReadableNativeMap to String
+        at com.facebook.react.bridge.ReadableNativeMap.checkInstance(Unknown Source:56)
+        at com.facebook.react.bridge.ReadableNativeMap.getNullableValue(Unknown Source:4)
+        at com.facebook.react.bridge.ReadableNativeMap.getString(Unknown Source:2)
+        at com.facebook.react.modules.dialog.DialogModule.showAlert(Unknown Source:46)
+        at java.lang.reflect.Method.invoke(Native Method)
+        at com.facebook.react.bridge.JavaMethodWrapper.invoke(Unknown Source:149)
+        at com.facebook.react.bridge.JavaModuleWrapper.invoke(Unknown Source:21)
+        at com.facebook.react.bridge.queue.NativeRunnable.run(Native Method)
+        at android.os.Handler.handleCallback(Handler.java:873)
+        at android.os.Handler.dispatchMessage(Handler.java:99)
+        at com.facebook.react.bridge.queue.MessageQueueThreadHandler.dispatchMessage(Unknown Source:0)
+        at android.os.Looper.loop(Looper.java:193)
+        at com.facebook.react.bridge.queue.MessageQueueThreadImpl$4.run(Unknown Source:37)
+        at java.lang.Thread.run(Thread.java:764)
+I/Process: Sending signal. PID: 2387 SIG: 9
+Application terminated.
+

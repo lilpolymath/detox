@@ -24,7 +24,7 @@ export class AuthLoadingScreen extends React.Component {
   UNSAFE_componentWillMount() {
     firebase.initializeApp(firebaseConfig);
     firebase.auth().onAuthStateChanged(user => {
-      this.props.navigation.navigate(user ? 'Main' : 'Signup');
+      this.props.navigation.navigate(user ? 'Login' : 'Login');
     });
   }
 

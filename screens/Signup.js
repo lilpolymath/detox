@@ -43,7 +43,7 @@ export class Signup extends Component {
         username: name,
         email: email,
       })
-      .then(() => this.props.navigation.navigate('Login'));
+      .then(() => this.props.navigation.navigate('Main'));
   };
 
   handleChange = key => val => {
@@ -60,7 +60,7 @@ export class Signup extends Component {
       firebase
         .auth()
         .createUserWithEmailAndPassword(this.state.email, this.state.cPass)
-        .catch(error => this.setState({errorMessage: error.message}));
+        .catch(error => Alert.alert('Error', error));
     }
     firebase
       .auth()
@@ -85,7 +85,7 @@ export class Signup extends Component {
           : null}
         <View style={styles.logoContainer}>
           <Image source={logo} style={styles.logo} />
-          <Text style={styles.logoText}>DETOX</Text>
+          {/* <Text style={styles.logoText}>DETOX</Text> */}
         </View>
         <View style={styles.inputContainer}>
           <Icon

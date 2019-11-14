@@ -1,12 +1,5 @@
 import React, {Component} from 'react';
-import {
-  StyleSheet,
-  FlatList,
-  Alert,
-  SafeAreaView,
-  Text,
-  View,
-} from 'react-native';
+import {StyleSheet, FlatList, Alert, SafeAreaView} from 'react-native';
 import firebase from 'firebase';
 import AsyncStorage from '@react-native-community/async-storage';
 import {ListItem} from 'react-native-elements';
@@ -22,7 +15,7 @@ export class Home extends Component {
     users: [],
   };
 
-  UNSAFE_componentWillMount() {
+  componentDidMount() {
     AsyncStorage.getItem('username').then(val => {
       if (val) {
         this.setState({name: val});
@@ -43,9 +36,11 @@ export class Home extends Component {
     });
   }
 
-  saySomething = () => {
-    return Alert.alert('Users', this.state.users);
-  };
+  // saySomething = () => {
+  //   return Alert.alert('Users', this.state.users);
+  // };
+
+  keyExtractor = (item, index) => index.toString();
 
   __logOut = async () => {
     await AsyncStorage.clear();
@@ -74,7 +69,7 @@ export class Home extends Component {
         <FlatList
           data={this.state.users}
           renderItem={this.renderRow}
-          keyExtractor={item => item.uid}
+          keyExtractor={this.keyExtractor}
         />
       </SafeAreaView>
     );

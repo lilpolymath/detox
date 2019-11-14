@@ -21,8 +21,14 @@ import AuthLoadingScreen from './screens/AuthLoadingScreen';
 
 // import firebase from 'firebase';
 
-const AppStack = createStackNavigator({Home: Home, Chat: Chat});
-const AuthStack = createStackNavigator({Signup: SignUp, Login: LoginNew});
+const AppStack = createStackNavigator(
+  {Home: Home, Chat: Chat},
+  {initialRouteName: 'Home'},
+);
+const AuthStack = createStackNavigator(
+  {Signup: SignUp, Login: LoginNew},
+  {initialRouteName: 'Login'},
+);
 const AuthLoadingStack = createStackNavigator({AuthLoading: AuthLoadingScreen});
 
 export default createAppContainer(
