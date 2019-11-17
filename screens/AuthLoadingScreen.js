@@ -21,7 +21,7 @@ export class AuthLoadingScreen extends React.Component {
     super(props);
   }
 
-  UNSAFE_componentWillMount() {
+  componentDidMount() {
     firebase.initializeApp(firebaseConfig);
     firebase.auth().onAuthStateChanged(user => {
       this.props.navigation.navigate(user ? 'Main' : 'Login');
@@ -61,11 +61,5 @@ const styles = StyleSheet.create({
     height: 100,
     width: 100,
     borderRadius: 50,
-  },
-  logoText: {
-    fontSize: 20,
-    fontWeight: '500',
-    color: 'beige',
-    marginTop: 10,
   },
 });

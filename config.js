@@ -26,6 +26,7 @@ export const check = () => {
     });
   }
 };
+
 export const login = async (user, success_callback, failed_callback) => {
   await firebase
     .auth()

@@ -10,7 +10,6 @@ import {
   TouchableOpacity,
   Dimensions,
 } from 'react-native';
-import AsyncStorage from '@react-native-community/async-storage';
 import firebase from 'firebase';
 import heavy from '../assets/snow.png';
 import logo from '../assets/customer.png';
@@ -37,19 +36,30 @@ export class LoginNew extends Component {
   };
 
   submitForm = async () => {
-    firebase
-      .auth()
-      .signInWithEmailAndPassword(this.state.email, this.state.password)
-      .catch(error => this.setState({errorMessage: error.message}));
-
-    firebase.auth().onAuthStateChanged(function(user) {
-      if (user) {
-        this.props.navigation.navigate('Main');
-      } else {
-        return;
-      }
-    });
+    try {
+      await firebase
+        .auth()
+        .signInWithEmailAndPassword(this.state.email, this.state.password);
+      this.props.navigation.navigate('Main');
+    } catch (error) {
+      this.setState({errorMessage: error.message});
+    }
   };
+
+  // submitForm = async () => {
+  //   firebase
+  //     .auth()
+  //     .signInWithEmailAndPassword(this.state.email, this.state.password)
+  //     .catch(error => this.setState({errorMessage: error.message}));
+
+  //   firebase.auth().onAuthStateChanged(function(user) {
+  //     if (user) {
+  //       this.props.navigation.navigate('Main');
+  //     } else {
+  //       return;
+  //     }
+  //   });
+  // };
 
   showPassword = () => {
     if (this.state.showPass === false) {
@@ -64,7 +74,6 @@ export class LoginNew extends Component {
       <ImageBackground style={styles.container} source={heavy}>
         <View style={styles.logoContainer}>
           <Image source={logo} style={styles.logo} />
-          {/* <Text style={styles.logoText}>DETOX</Text> */}
         </View>
         {this.state.errorMessage
           ? Alert.alert('Error', this.state.errorMessage)
@@ -86,6 +95,7 @@ export class LoginNew extends Component {
             onChangeText={this.handleChange('email')}
           />
         </View>
+
         <View style={styles.inputContainer}>
           <Icon
             name="md-lock"
@@ -111,6 +121,11 @@ export class LoginNew extends Component {
               color={'rgba(255,255,255,0.6)'}
             />
           </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.forgotPasswordContainer}
+            onPress={() => this.props.navigation.navigate('ForgotPassword')}>
+            <Text style={styles.forgotPassword}>Forgot password?</Text>
+          </TouchableOpacity>
         </View>
 
         <TouchableOpacity onPress={this.submitForm} style={styles.loginBtn}>
@@ -118,7 +133,7 @@ export class LoginNew extends Component {
         </TouchableOpacity>
         <TouchableOpacity
           onPress={() => this.props.navigation.navigate('Signup')}>
-          <Text style={styles.loginText}>New User? SignUp</Text>
+          <Text style={styles.loginText}>New User? Sign up</Text>
         </TouchableOpacity>
       </ImageBackground>
     );
@@ -144,14 +159,19 @@ const styles = StyleSheet.create({
     width: 100,
     borderRadius: 50,
   },
-  logoText: {
-    fontSize: 20,
+  forgotPassword: {
+    fontSize: 12,
     fontWeight: '500',
     color: 'white',
-    marginTop: 10,
+  },
+
+  forgotPasswordContainer: {
+    position: 'absolute',
+    right: 15,
+    top: -20,
   },
   inputContainer: {
-    marginBottom: 15,
+    marginBottom: 20,
   },
   input: {
     padding: 10,
@@ -174,7 +194,7 @@ const styles = StyleSheet.create({
   },
   loginText: {
     color: 'white',
-    fontSize: 18,
+    fontSize: 16,
     fontWeight: '500',
     marginTop: 10,
   },

@@ -18,6 +18,7 @@ import Home from './screens/Home';
 import Chat from './screens/Chat';
 import SignUp from './screens/Signup';
 import AuthLoadingScreen from './screens/AuthLoadingScreen';
+import ForgotPassword from './screens/ForgotPassword';
 
 // import firebase from 'firebase';
 
@@ -26,8 +27,8 @@ const AppStack = createStackNavigator(
   {initialRouteName: 'Home'},
 );
 const AuthStack = createStackNavigator(
-  {Signup: SignUp, Login: LoginNew},
-  {initialRouteName: 'Login'},
+  {Signup: SignUp, Login: LoginNew, ForgotPassword: ForgotPassword},
+  {initialRouteName: 'ForgotPassword'},
 );
 const AuthLoadingStack = createStackNavigator({AuthLoading: AuthLoadingScreen});
 

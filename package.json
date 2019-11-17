@@ -10,6 +10,7 @@
   "dependencies": {
     "@react-native-community/async-storage": "^1.6.1",
     "firebase": "^6.4.1",
+    "jetifier": "^1.6.4",
     "react": "16.8.6",
     "react-native": "0.60.5",
     "react-native-elements": "^1.2.0",

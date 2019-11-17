@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {StyleSheet, FlatList, Alert, SafeAreaView} from 'react-native';
+import {StyleSheet, FlatList, SafeAreaView} from 'react-native';
 import firebase from 'firebase';
 import AsyncStorage from '@react-native-community/async-storage';
 import {ListItem} from 'react-native-elements';
