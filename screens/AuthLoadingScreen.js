@@ -22,7 +22,9 @@ export class AuthLoadingScreen extends React.Component {
   }
 
   componentDidMount() {
-    firebase.initializeApp(firebaseConfig);
+    if (!firebase.apps.length) {
+      firebase.initializeApp(firebaseConfig);
+    }
     firebase.auth().onAuthStateChanged(user => {
       this.props.navigation.navigate(user ? 'Main' : 'Login');
     });
