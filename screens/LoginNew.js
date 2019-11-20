@@ -46,21 +46,6 @@ export class LoginNew extends Component {
     }
   };
 
-  // submitForm = async () => {
-  //   firebase
-  //     .auth()
-  //     .signInWithEmailAndPassword(this.state.email, this.state.password)
-  //     .catch(error => this.setState({errorMessage: error.message}));
-
-  //   firebase.auth().onAuthStateChanged(function(user) {
-  //     if (user) {
-  //       this.props.navigation.navigate('Main');
-  //     } else {
-  //       return;
-  //     }
-  //   });
-  // };
-
   showPassword = () => {
     if (this.state.showPass === false) {
       this.setState({truthy: false, showPass: true});

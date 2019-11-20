@@ -14,11 +14,11 @@ export class Chat extends Component {
     super(props);
     this.state = {
       person: {
-        name: this.props.navigation.getParam('email'),
+        name: this.props.navigation.getParam('username'),
         userId: this.props.navigation.getParam('uid'),
       },
-      name: '',
-      phone: '',
+      currentUserId: '',
+      username: '',
       messageList: [],
     };
   }
@@ -38,7 +38,23 @@ export class Chat extends Component {
 
   loadMessages = () => {
     var userId = firebase.auth().currentUser;
-    this.setState({name: userId.uid});
+    this.setState({currentUserId: userId.uid});
+    var users;
+
+    firebase
+      .database()
+      .ref('users')
+      .orderByKey()
+      .equalTo(userId.uid)
+      .on('child_added', function(snapshot) {
+        users = snapshot.val();
+      });
+    this.setState({username: users.username});
+    // this.setState({username: current.username});
+
+    const userphoto = Math.floor(Math.random(0, 1) * 100);
+    // https://ui-avatars.com/api/?background=d88413&color=FFF&name=$
+
     firebase
       .database()
       .ref('messages')
@@ -50,7 +66,8 @@ export class Chat extends Component {
         const {key: _id} = snapshot;
         const user = {
           _id: from,
-          avatar: `https://ui-avatars.com/api/?background=d88413&color=FFF&name=${username}`,
+          name: username,
+          avatar: `https://randomuser.me/api/portraits/thumb/men/${userphoto}.jpg`,
         };
         const parsed = {
           _id,
@@ -62,48 +79,54 @@ export class Chat extends Component {
           messageList: GiftedChat.append(prevState.messageList, parsed),
         }));
       });
+
+    console.log(
+      'https://randomuser.me/api/portraits/thumb/men/{userphoto}.jpg',
+    );
   };
 
   handleChange = key => val => {
     this.setState({[key]: val});
   };
 
-  sendMessage = messages => {
-    for (let i = 0; i < messages.length; i++) {
-      const {text, user} = messages[i];
-      const message = {
-        message: text,
-        from: user._id,
-        time: firebase.database.ServerValue.TIMESTAMP,
-      };
-      let msgId = firebase
-        .database()
-        .ref('messages')
-        .child(this.state.name)
-        .child(this.state.person.userId)
-        .push().key;
-      let updates = {};
-      updates[
-        'messages/' +
-          this.state.name +
-          '/' +
-          this.state.person.userId +
-          '/' +
-          msgId
-      ] = message;
-      updates[
-        'messages/' +
-          this.state.person.userId +
-          '/' +
-          this.state.name +
-          '/' +
-          msgId
-      ] = message;
-      firebase
-        .database()
-        .ref()
-        .update(updates);
-    }
+  sendMessage = (messages = []) => {
+    // for (let i = 0; i < messages.length; i++) {
+    const {text, user} = messages[0];
+    const message = {
+      message: text,
+      from: user._id,
+      time: firebase.database.ServerValue.TIMESTAMP,
+      username: user.name,
+    };
+    console.log(user);
+    let msgId = firebase
+      .database()
+      .ref('messages')
+      .child(this.state.currentUserId)
+      .child(this.state.person.userId)
+      .push().key;
+    let updates = {};
+    updates[
+      'messages/' +
+        this.state.currentUserId +
+        '/' +
+        this.state.person.userId +
+        '/' +
+        msgId
+    ] = message;
+    updates[
+      'messages/' +
+        this.state.person.userId +
+        '/' +
+        this.state.currentUserId +
+        '/' +
+        msgId
+    ] = message;
+    firebase
+      .database()
+      .ref()
+      .update(updates);
+    // }
   };
 
   render() {
@@ -111,7 +134,9 @@ export class Chat extends Component {
       <GiftedChat
         messages={this.state.messageList}
         onSend={this.sendMessage}
-        user={{_id: this.state.name}}
+        user={{_id: this.state.currentUserId, name: this.state.username}}
+        showAvatarForEveryMessage={false}
+        showUserAvatar
       />
     );
   }
