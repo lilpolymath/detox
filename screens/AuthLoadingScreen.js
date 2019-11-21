@@ -5,7 +5,6 @@ import {
   ImageBackground,
   StatusBar,
   StyleSheet,
-  Text,
   View,
 } from 'react-native';
 import firebaseConfig from '../config';
